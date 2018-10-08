@@ -16,8 +16,16 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hP9-EG-0kc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                    <color key="backgroundColor" red="0.0" green="0.80005782842636108" blue="0.6085822582244873" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="eaZ-qH-KhG"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="hZV-ei-4PY"/>
+                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2e-HT-4vh">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="24"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="24" placeholder="YES" id="m4W-MM-D8x"/>
                     </constraints>
@@ -26,24 +34,22 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CRE-X5-Shg">
-                    <rect key="frame" x="0.0" y="24" width="375" height="186"/>
+                    <rect key="frame" x="0.0" y="44" width="375" height="146"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwX-99-cIc">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                             <color key="backgroundColor" red="0.89411764709999997" green="0.20784313730000001" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <state key="normal" title="Button"/>
                         </button>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVa-79-PYs">
-                            <rect key="frame" x="0.0" y="124" width="377" height="31"/>
-                        </switch>
-                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Wph-7F-Eke">
-                            <rect key="frame" x="0.0" y="155" width="94" height="29"/>
-                        </stepper>
-                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H9w-H8-Yi0">
-                            <rect key="frame" x="0.0" y="184" width="375" height="2"/>
-                        </progressView>
                     </subviews>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9g-xB-kiA">
+                    <rect key="frame" x="0.0" y="190" width="375" height="20"/>
+                    <color key="backgroundColor" red="0.78039215689999997" green="0.33725490200000002" blue="0.41960784309999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="xom-EC-5rK"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Bgt-ng-dHM"/>
             <connections>

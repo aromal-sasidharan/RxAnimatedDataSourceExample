@@ -16,10 +16,6 @@
 		0A29BBF4216BBE0D00DAF3E7 /* TestStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A29BBF3216BBE0D00DAF3E7 /* TestStackView.swift */; };
 		0A29BBF6216BBE2600DAF3E7 /* TestStackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A29BBF5216BBE2600DAF3E7 /* TestStackView.xib */; };
 		0A29BBF9216BBF6A00DAF3E7 /* SnapKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0A29BBF7216BBF5A00DAF3E7 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		845F61F71CCFDE6A00A8BE32 /* ImageTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F61F61CCFDE6A00A8BE32 /* ImageTitleTableViewCell.swift */; };
-		845F61F91CCFDEA800A8BE32 /* TitleSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F61F81CCFDEA800A8BE32 /* TitleSwitchTableViewCell.swift */; };
-		845F61FB1CCFDED600A8BE32 /* TitleSteperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F61FA1CCFDED600A8BE32 /* TitleSteperTableViewCell.swift */; };
-		845F61FD1CCFF63600A8BE32 /* UIKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F61FC1CCFF63600A8BE32 /* UIKitExtensions.swift */; };
 		A5E035641F0BD55A00EA6BDE /* Example5_UIPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E035631F0BD55A00EA6BDE /* Example5_UIPickerView.swift */; };
 		C87DF3461D0219A7006308C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C87DF3431D0219A7006308C5 /* AppDelegate.swift */; };
 		C8984CA01C36B6FA001E4272 /* Example2_RandomizedSectionsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8984C9F1C36B6FA001E4272 /* Example2_RandomizedSectionsAnimation.swift */; };
@@ -78,10 +74,6 @@
 		0A29BBF3216BBE0D00DAF3E7 /* TestStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStackView.swift; sourceTree = "<group>"; };
 		0A29BBF5216BBE2600DAF3E7 /* TestStackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestStackView.xib; sourceTree = "<group>"; };
 		0A29BBF7216BBF5A00DAF3E7 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
-		845F61F61CCFDE6A00A8BE32 /* ImageTitleTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTitleTableViewCell.swift; sourceTree = "<group>"; };
-		845F61F81CCFDEA800A8BE32 /* TitleSwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleSwitchTableViewCell.swift; sourceTree = "<group>"; };
-		845F61FA1CCFDED600A8BE32 /* TitleSteperTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleSteperTableViewCell.swift; sourceTree = "<group>"; };
-		845F61FC1CCFF63600A8BE32 /* UIKitExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitExtensions.swift; sourceTree = "<group>"; };
 		A5E035631F0BD55A00EA6BDE /* Example5_UIPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Example5_UIPickerView.swift; sourceTree = "<group>"; };
 		C81905AE1DEA019100AE679C /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C87DF3431D0219A7006308C5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -135,17 +127,6 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
-		845F61F51CCFDD7100A8BE32 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				845F61F61CCFDE6A00A8BE32 /* ImageTitleTableViewCell.swift */,
-				845F61F81CCFDEA800A8BE32 /* TitleSwitchTableViewCell.swift */,
-				845F61FA1CCFDED600A8BE32 /* TitleSteperTableViewCell.swift */,
-				845F61FC1CCFF63600A8BE32 /* UIKitExtensions.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		C87DF3421D0219A7006308C5 /* Support */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +161,6 @@
 				C8984C9F1C36B6FA001E4272 /* Example2_RandomizedSectionsAnimation.swift */,
 				A5E035631F0BD55A00EA6BDE /* Example5_UIPickerView.swift */,
 				C87DF3421D0219A7006308C5 /* Support */,
-				845F61F51CCFDD7100A8BE32 /* Views */,
 				C8984CA11C36B6FA001E4272 /* Main.storyboard */,
 				C8984CA41C36B6FA001E4272 /* Assets.xcassets */,
 				C8984CA61C36B6FA001E4272 /* LaunchScreen.storyboard */,
@@ -360,13 +340,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5E035641F0BD55A00EA6BDE /* Example5_UIPickerView.swift in Sources */,
-				845F61F71CCFDE6A00A8BE32 /* ImageTitleTableViewCell.swift in Sources */,
 				C8984CA01C36B6FA001E4272 /* Example2_RandomizedSectionsAnimation.swift in Sources */,
 				C87DF3461D0219A7006308C5 /* AppDelegate.swift in Sources */,
 				0A29BBF4216BBE0D00DAF3E7 /* TestStackView.swift in Sources */,
-				845F61FB1CCFDED600A8BE32 /* TitleSteperTableViewCell.swift in Sources */,
-				845F61F91CCFDEA800A8BE32 /* TitleSwitchTableViewCell.swift in Sources */,
-				845F61FD1CCFF63600A8BE32 /* UIKitExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

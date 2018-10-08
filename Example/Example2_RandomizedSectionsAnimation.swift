@@ -76,6 +76,7 @@ class PartialUpdatesViewController: UIViewController {
         animatedTableView.estimatedRowHeight = 500
         animatedTableView.rowHeight = UITableViewAutomaticDimension
         animatedTableView.separatorStyle = .none
+//        animatedTableView.allowsSelection = false
         animatedTableView.register(TestCell.self, forCellReuseIdentifier: "TestCell")
         data.asObservable().subscribe { (event) in
             print("Data Changed")
@@ -88,7 +89,7 @@ class PartialUpdatesViewController: UIViewController {
                 return cell!
         }
         )
-        tvAnimatedDataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .middle, deleteAnimation: .fade)
+//        tvAnimatedDataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .middle, deleteAnimation: .fade)
         
         
         data.asObservable()
