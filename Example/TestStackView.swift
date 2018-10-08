@@ -41,7 +41,8 @@ class TestCell:UITableViewCell{
     }
     
     func setupView(){
-        contentView.backgroundColor = UIColor.brown
+        contentView.backgroundColor = UIColor.white
+        
         contentView.addSubview(childView)
         childView.snp.makeConstraints { (make) in
             make.leading.equalTo(contentView)

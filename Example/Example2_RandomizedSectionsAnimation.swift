@@ -11,6 +11,43 @@ import RxDataSources
 import RxSwift
 import RxCocoa
 import CoreLocation
+class IntItem1 {
+    let number: Int
+    init(number: Int) {
+        self.number = number
+        
+    }
+}
+extension IntItem1
+    : IdentifiableType
+, Equatable {
+    typealias Identity = Int
+    
+    var identity: Int {
+        return number
+    }
+}
+
+// equatable, this is needed to detect changes
+func == (lhs: IntItem1, rhs: IntItem1) -> Bool {
+    return lhs.number == rhs.number
+}
+
+
+extension IntItem1
+    : CustomDebugStringConvertible {
+    var debugDescription: String {
+        return "IntItem(number: \(number)"
+    }
+}
+
+extension IntItem1
+    : CustomStringConvertible {
+
+    var description: String {
+        return "\(number)"
+    }
+}
 
 class NumberCell : UICollectionViewCell {
     @IBOutlet var value: UILabel?
@@ -21,7 +58,7 @@ class NumberSectionView : UICollectionReusableView {
 }
 
 class PartialUpdatesViewController: UIViewController {
-    
+    typealias SectionType = AnimatableSectionModel<String,IntItem1>
     @IBOutlet weak var animatedTableView: UITableView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var animatedCollectionView: UICollectionView!
@@ -30,37 +67,28 @@ class PartialUpdatesViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
-    let data:Variable<[NumberSection]> = Variable([NumberSection(header: "section 1", numbers: `$`([1, 2, 3]), updated: Date()),
-                                                   NumberSection(header: "section 2", numbers: `$`([4, 5, 6]), updated: Date()),
-                                                   NumberSection(header: "section 3", numbers: `$`([7, 8, 9]), updated: Date()),
-                                                   NumberSection(header: "section 4", numbers: `$`([10, 11, 12]), updated: Date()),
-                                                   NumberSection(header: "section 5", numbers: `$`([13, 14, 15]), updated: Date()),
-                                                   NumberSection(header: "section 6", numbers: `$`([16, 17, 18]), updated: Date()),
-                                                   NumberSection(header: "section 7", numbers: `$`([19, 20, 21]), updated: Date()),
-                                                   NumberSection(header: "section 8", numbers: `$`([22, 23, 24]), updated: Date()),
-                                                   NumberSection(header: "section 9", numbers: `$`([25, 26, 27]), updated: Date()),
-                                                   NumberSection(header: "section 10", numbers: `$`([28, 29, 30]), updated: Date())])
+    let data:Variable<[SectionType]> = Variable([SectionType(model: "section 1", items: `$`([1, 2, 3])),
+                                                   SectionType(model: "section 2", items: `$`([4, 5, 6,7,8,9,10])),
+                                                  ])
     override func viewDidLoad() {
         super.viewDidLoad()
         
         animatedTableView.estimatedRowHeight = 500
         animatedTableView.rowHeight = UITableViewAutomaticDimension
-        
+        animatedTableView.separatorStyle = .none
         animatedTableView.register(TestCell.self, forCellReuseIdentifier: "TestCell")
         data.asObservable().subscribe { (event) in
             print("Data Changed")
             }.disposed(by: disposeBag)
-        let tvAnimatedDataSource = RxTableViewSectionedAnimatedDataSource<NumberSection>(
+        let tvAnimatedDataSource = RxTableViewSectionedAnimatedDataSource<SectionType>(
             configureCell:  { (_, tv, ip, i) in
                 let cell = tv.dequeueReusableCell(withIdentifier: "TestCell") as? TestCell
                 cell?.childView.labelTest.text = "\(i)"
                 cell?.childView.stackViewExpand.isHidden = (i.number%2) == 0
                 return cell!
-        },
-            titleForHeaderInSection: { (ds, section) -> String? in
-                return ds[section].header
         }
         )
+        tvAnimatedDataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .middle, deleteAnimation: .fade)
         
         
         data.asObservable()
@@ -74,16 +102,16 @@ class PartialUpdatesViewController: UIViewController {
             let lower : UInt32 = 1000
             let upper : UInt32 = 1020
             let randomNumber = arc4random_uniform(upper - lower) + lower
-            self.data.value[1].numbers[0]=IntItem(number: Int(randomNumber), date: Date())
+            self.data.value[1].items[0]=IntItem1(number: Int(randomNumber))
             }.disposed(by: disposeBag)
         Observable.of(
            
-            animatedTableView.rx.modelSelected(IntItem.self)
+            animatedTableView.rx.modelSelected(IntItem1.self)
            
             )
             .merge()
             .subscribe(onNext: { item in
-                  self.data.value[1].numbers[0]=IntItem(number: 101, date: Date())
+                  self.data.value[0].items[0]=IntItem1(number: 400)
                 print("Let me guess, it's .... It's \(item), isn't it? Yeah, I've got it.")
             })
             .disposed(by: disposeBag)
@@ -92,7 +120,7 @@ class PartialUpdatesViewController: UIViewController {
 
 
 
-func `$`(_ numbers: [Int]) -> [IntItem] {
-    return numbers.map { IntItem(number: $0, date: Date()) }
+func `$`(_ numbers: [Int]) -> [IntItem1] {
+    return numbers.map { IntItem1(number: $0) }
 }
 
